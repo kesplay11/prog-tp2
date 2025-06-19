@@ -29,64 +29,71 @@ const FormTarea = ({ onAgregarTarea }) => {
     }
 
     return (
-        <form onSubmit={handleSubmit} className=''>
-            <h2 className=''>Nueva Tarea</h2>
+    <form onSubmit={handleSubmit} className="bg-white p-4 rounded shadow">
+        <h2 className="text-xl font-semibold mb-4">Nueva Tarea</h2>
 
-        {/* campo nombre*/}
-        <div>
-            <label htmlFor="">Nombre</label>
-            <input 
-            type="text" 
+        {/* Campo Nombre */}
+        <div className="mb-3">
+            <label className="block text-sm font-medium mb-1" htmlFor="nombre">
+            Nombre:
+            </label>
+            <input
+            type="text"
             id="nombre"
             value={nombre}
             onChange={(e) => setNombre(e.target.value)}
+            placeholder="Ej: Estudiar React"
+            className="w-full px-3 py-2 border rounded"
             />
         </div>
 
-        {/* campo prioridad */}
-        <div>
-            <label >prioridad:</label>
-            <select 
-                id="prioridad"
-                value={prioridad}
-                onChange = {(e) => setPrioridad(e.target.value)}
-
+        {/* Campo Prioridad */}
+        <div className="mb-3">
+            <label className="block text-sm font-medium mb-1" htmlFor="prioridad">
+            Prioridad:
+            </label>
+            <select
+            id="prioridad"
+            value={prioridad}
+            onChange={(e) => setPrioridad(e.target.value)}
+            className="w-full px-3 py-2 border rounded"
             >
-                {opcionesPrioridad.map((prio)=>(
-                    <option key={prio} value={prio}>
-                        {prio.charAt(0).toUpperCase() + prio.slice(1)}
-                    </option>
-                ))}
+            {opcionesPrioridad.map((prio) => (
+                <option key={prio} value={prio}>
+                {prio.charAt(0).toUpperCase() + prio.slice(1)}
+                </option>
+            ))}
             </select>
         </div>
 
-        {/* campo categoria*/ }
-        <div>
-            <label >Categoria: </label>
-            <select 
+        {/* Campo Categoría */}
+        <div className="mb-4">
+            <label className="block text-sm font-medium mb-1" htmlFor="categoria">
+            Categoría:
+            </label>
+            <select
             id="categoria"
             value={categoria}
-            onChange = {(e)=> setCategoria(e.target.value)}
+            onChange={(e) => setCategoria(e.target.value)}
+            className="w-full px-3 py-2 border rounded"
             >
-                {opcionesCategoria.map((cat)=>(
-                    <option
-                        key={cat}
-                        value={cat}
-                    >
-                        {cat.charAt(0).toUpperCase() + cat.slice(1)}
-                    </option>
-                ))}
+            {opcionesCategoria.map((cat) => (
+                <option key={cat} value={cat}>
+                {cat.charAt(0).toUpperCase() + cat.slice(1)}
+                </option>
+            ))}
             </select>
         </div>
 
-        {/* Boton para enviar la tarea */}
-        <button 
-        type='submit'>
-            agregar tarea
+        {/* Botón enviar */}
+        <button
+            type="submit"
+            className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition"
+        >
+            Agregar Tarea
         </button>
         </form>
-    )
-
+    );
 };
 
 export default FormTarea;
